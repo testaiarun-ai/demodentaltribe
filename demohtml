@@ -1,123 +1,188 @@
-## 0) Clinic Variables (fill throughout)
-- **Clinic:** {{ClinicName}}
-- **Tagline:** {{BrandTagline}}
-- **City/Locality:** {{City}}, {{Locality}}
-- **Phone/WhatsApp:** {{Phone}} / {{WhatsAppNumber}}
-- **Email:** {{Email}}
-- **Address + Google Map link:** {{Address}} — {{MapURL}}
-- **Working Hours:** {{Hours}}
-- **Founding Dentist(s):** {{DoctorName(s)}}, credentials (BDS/MDS, Fellowships)
-- **Starting Prices (INR):** Implants {{₹}}, RCT {{₹}}, Aligners {{₹}}, Veneers/Smile {{₹}}, Cleaning {{₹}}
-- **Financing:** EMI available via {{Provider}}; mention 0–No Cost EMI if applicable
-- **Languages supported:** {{Languages}}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Transform your smile with world-class dentistry in [City]. Specialists in Implants, Smile Makeovers & Full Mouth Rehabilitation.">
+  <title>Premium Dental Clinic</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #5CA9E9;
+      --accent: #D4AF37;
+      --bg: #ffffff;
+      --text: #333333;
+      --muted: #f5f9fc;
+    }
+    * {margin:0; padding:0; box-sizing:border-box;}
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.6;
+    }
+    header {
+      background:url('hero-image.jpg') center/cover no-repeat;
+      color:white;
+      text-align:center;
+      padding:7rem 1rem;
+      position:relative;
+    }
+    header::after {
+      content:"";
+      position:absolute;
+      top:0; left:0; right:0; bottom:0;
+      background:rgba(0,0,0,0.4);
+    }
+    header .content {
+      position:relative;
+      z-index:2;
+      max-width:900px;
+      margin:0 auto;
+    }
+    header h1 {
+      font-family:'Playfair Display', serif;
+      font-size:2.5rem;
+      margin-bottom:1rem;
+    }
+    header p {font-size:1.2rem;}
+    .btn {
+      display:inline-block;
+      padding:0.8rem 1.5rem;
+      border-radius:5px;
+      text-decoration:none;
+      font-weight:600;
+      margin:0.5rem;
+      transition:0.3s;
+    }
+    .btn-primary {background:var(--primary); color:white;}
+    .btn-primary:hover {background:#428ac7;}
+    .btn-accent {background:var(--accent); color:white;}
+    .btn-accent:hover {background:#b8902e;}
+    section {padding:4rem 1rem; max-width:1200px; margin:auto;}
+    section h2 {
+      text-align:center;
+      font-family:'Playfair Display', serif;
+      font-size:2rem;
+      margin-bottom:2rem;
+      color:var(--primary);
+    }
+    .about, .treatments, .why, .contact {
+      display:grid; gap:2rem;
+    }
+    .about {grid-template-columns:1fr 1fr;}
+    .about img {width:100%; border-radius:10px;}
+    .treatments-grid {
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(250px, 1fr));
+      gap:1.5rem;
+    }
+    .card {
+      background:var(--muted);
+      padding:1.5rem;
+      border-radius:10px;
+      text-align:center;
+      transition:transform 0.3s;
+    }
+    .card:hover {transform:translateY(-5px);}
+    .testimonials, .gallery {text-align:center;}
+    footer {
+      background:#f0f0f0;
+      padding:2rem;
+      text-align:center;
+      border-top:3px solid var(--primary);
+    }
+    /* Responsive */
+    @media(max-width:768px){
+      .about {grid-template-columns:1fr;}
+      header h1 {font-size:2rem;}
+    }
+  </style>
+</head>
+<body>
 
-## 1) Goals
-1. Inspire trust fast (showcase results, credentials, hygiene).
-2. Drive appointments (sticky CTA, WhatsApp, click-to-call).
-3. Rank for local SEO (“dental implants in {{Locality}}”, etc.).
-4. Educate with crisp visuals and plain-English explanations.
+<header>
+  <div class="content">
+    <h1>Transform Your Smile with World-Class Dentistry in [City]</h1>
+    <p>Specialists in Implants, Smile Makeovers & Full Mouth Rehabilitation</p>
+    <a href="#contact" class="btn btn-primary">Book Your Consultation</a>
+    <a href="#gallery" class="btn btn-accent">See Before & After Results</a>
+    <div style="margin-top:1rem;">
+      <span>⭐ 500+ 5★ Google Reviews</span> | 
+      <span>🏆 International Certifications</span>
+    </div>
+  </div>
+</header>
 
-## 2) Tech & Quality Bar
-- **Stack:** Next.js (App Router) + TypeScript + Tailwind CSS + shadcn/ui + Framer Motion.
-- **Design:** Clean, modern, white/soft pastel palette; generous whitespace; rounded 2xl; subtle depth.
-- **Perf:** Lighthouse ≥ 95 (Perf/SEO/Best Practices/Accessibility). LCP < 2.5s on 4G, CLS < 0.1.
-- **A11y:** WCAG 2.2 AA (focus states, ARIA landmarks, form labels, color contrast, skip link).
-- **SEO:** Static metadata per route; OpenGraph/Twitter cards; XML sitemap; robots.txt.
+<section class="about">
+  <div>
+    <h2>About Our Clinic</h2>
+    <p>At [Clinic Name], we merge world-class dental technology with compassionate care. Led by internationally trained specialists, we specialize in dental implants, smile design, and full mouth rehabilitation.</p>
+    <ul>
+      <li>🦷 Digital Smile Design Suite</li>
+      <li>🩻 In-house CBCT Scan</li>
+      <li>🏥 Advanced Sterilization Lab</li>
+    </ul>
+  </div>
+  <div>
+    <img src="doctor.jpg" alt="Doctor Portrait">
+  </div>
+</section>
 
-## 3) Site Map (routes & intent)
-- **/** (Home): hero, trust stack, services overview, doctor creds, testimonials, badges, awards, clinic tour, CTA.
-- **/implants** (Primary money page).
-- **/rct-endo**
-- **/aligners-orthodontics**
-- **/cosmetic-smile-makeover**
-- **/general-dentistry**
-- **/doctors** (team bios with credentials & memberships).
-- **/pricing** (transparent ranges + EMI).
-- **/before-after** (gallery with consent).
-- **/reviews** (Google review embed + filters).
-- **/contact** (map, parking/landmarks, form, WhatsApp).
-- **/book** (booking flow).
-- **/blogs** (educational posts).
-- **/locations/{{locality}}** (create templated local landing pages for 10–20 neighborhoods).
-- **/privacy** and **/terms**.
+<section class="treatments">
+  <h2>Our Treatments</h2>
+  <div class="treatments-grid">
+    <div class="card"><h3>Dental Implants</h3><p>Natural-looking, permanent teeth replacement. From ₹45,000.</p></div>
+    <div class="card"><h3>Full Mouth Rehab</h3><p>Restore function & aesthetics with digital dentistry. From ₹2.5 Lakh.</p></div>
+    <div class="card"><h3>Smile Makeovers</h3><p>Hollywood-style smiles designed digitally. From ₹75,000.</p></div>
+    <div class="card"><h3>Clear Aligners</h3><p>Nearly invisible orthodontics. From ₹1.5 Lakh.</p></div>
+    <div class="card"><h3>Cosmetic Dentistry</h3><p>Whitening, veneers & more. From ₹15,000.</p></div>
+    <div class="card"><h3>General Dentistry</h3><p>Painless root canals & complete family care. From ₹5,000.</p></div>
+  </div>
+</section>
 
-## 4) Global UI
-- **Header:** Logo, sticky nav, CTA buttons: “Book Appointment”, “WhatsApp”, “Call”.
-- **Footer:** Address, hours, map, quick links, accreditation logos, social, emergency note.
-- **Sticky Contact Dock (mobile):** Call | WhatsApp | Book.
-- **Trust Stack (persistent across site):** badges (NABH/ISO/IDA/ICOI), review count (target 4.8★ 500+), sterilization SOP, awards logos, media mentions.
-- **Micro-copy:** Pain-reduction, warranties, genuine empathy.
+<section id="gallery" class="gallery">
+  <h2>Before & After Gallery</h2>
+  <p>All images shown with patient consent for educational purposes.</p>
+  <img src="before-after1.jpg" alt="Smile Transformation" style="max-width:100%; border-radius:10px;">
+</section>
 
-## 5) Home Page Content (generate polished copy + UI)
-- **Hero:** Headline (“Implants & Advanced Dentistry in {{City}}”), subheadline (pain-free, CBCT-planned), 2 CTAs (Book, WhatsApp), trust badges row, above-the-fold clinic image.
-- **Services Grid (5 cards):** Implants / RCT / Aligners / Cosmetic / General — each with icon, 2-line value prop, “Know more”.
-- **Why {{ClinicName}}:** bullet list (experience, tech: CBCT/Waterlase/IOS, sterilization, EMI).
-- **Before-After Carousel:** 6–10 cases with captions (case type, timeframe).
-- **Doctor Spotlight:** photo, credentials, memberships (IDA, ICOI, AAID), conferences, publications.
-- **Social Proof:** Review highlight cards + link to /reviews.
-- **Clinic Tour:** 6 photos (reception, op room, sterilization area, CBCT, aligner corner, recovery).
-- **FAQ (accordion):** 8–10 common questions (pain, cost, warranty, downtime, diet).
-- **Final CTA:** “Free Virtual Pre-Consult Today”.
+<section class="testimonials">
+  <h2>Patient Testimonials</h2>
+  <blockquote>“I came with missing teeth, today I have a complete smile again. Truly world-class care.” – Rajesh K.</blockquote>
+</section>
 
-## 6) Service Pages (structure & content)
-**For each page:** /implants, /rct-endo, /aligners-orthodontics, /cosmetic-smile-makeover, /general-dentistry
+<section class="why">
+  <h2>Why Choose Us</h2>
+  <ul>
+    <li>👨‍⚕️ Internationally Trained Doctors</li>
+    <li>⏳ 15+ Years of Expertise</li>
+    <li>😁 5000+ Smiles Transformed</li>
+    <li>🧼 State-of-the-art Sterilization</li>
+    <li>💳 Easy EMI Payment Options</li>
+  </ul>
+</section>
 
-- **Hero:** procedure name + immediate benefit (e.g., “Eat Confidently Again”).
-- **Explainer:** 3–5 step process with icons (Assessment → Planning → Treatment → Review → Maintenance).
-- **Outcomes:** bullets with patient-friendly metrics (success rate ranges, healing times).
-- **Pricing & EMI:** transparent ranges with inclusions; EMI calculator snippet.
-- **Candidacy Checklist:** who’s a good candidate; contraindications (plain language).
-- **Tech We Use:** CBCT, intra-oral scanner, guided surgery; brand-agnostic.
-- **Before–After block:** 3–6 relevant cases.
-- **FAQ (schema-ready):** 6–8 Qs.
-- **CTA strip:** “Book Implant Assessment” (+WhatsApp).
+<section id="contact" class="contact">
+  <h2>Book a Consultation</h2>
+  <form>
+    <input type="text" placeholder="Your Name" required><br><br>
+    <input type="tel" placeholder="Phone Number" required><br><br>
+    <input type="text" placeholder="Treatment of Interest"><br><br>
+    <button type="submit" class="btn btn-primary">Book Appointment</button>
+  </form>
+  <p>📍 Address: 123 Premium Dental Street, [City Name]</p>
+  <p>📞 Call: +91 98765 43210 | WhatsApp Available</p>
+  <div style="margin-top:1rem;">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18..." width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+  </div>
+</section>
 
-## 7) Reviews & Gallery
-- **/reviews:** Filter by treatment; average rating; highlight 5 most recent; “Write a review” link.
-- **/before-after:** Masonry grid; each case card has (problem → treatment → result duration) tags.
+<footer>
+  <p>&copy; 2025 [Clinic Name]. All rights reserved.</p>
+</footer>
 
-## 8) Booking & Forms
-- **/book:** multi-step form (name, phone, treatment interest, preferred time, consent). Validate; show confirmation + ICS calendar download; send to {{Email}} + WhatsApp.
-- **WhatsApp Deep Link:** prefilled message “Hi {{ClinicName}}, I’d like to book an {{Service}} on {{Date}}.”
-- **Call tracking:** tel: links with event tracking.
+</body>
+</html>
 
-## 9) Local SEO Pack
-- Create **/locations/{{locality}}** pages (auto-generate 10–20): intro paragraph, nearby landmarks, schema `LocalBusiness`, embedded map, NAP data, localized reviews, CTAs, internal links to services.
-- On-page: H1 with locality, meta title `Dental Implants in {{Locality}} | {{ClinicName}}`, FAQ targeting “cost, pain, time, EMI”.
-
-## 10) Copy Tone & Brand
-- Friendly, expert, reassuring. Avoid jargon. Plain English. Short paragraphs, scannable lists.
-- Use INR currency. Mention EMI & warranties clearly. Emphasize hygiene and pain management.
-
-## 11) Components to Implement
-- `SectionHero`, `ServiceCard`, `StatsBar`, `BeforeAfterCarousel`, `DoctorCard`, `ReviewList`, `FAQAccordion`, `ContactDock`, `EMICalculator`, `LocationCard`, `BookingForm`.
-- Animations: subtle fade/slide on scroll, 200–300ms; reduced-motion support.
-
-## 12) Structured Data (schema.org)
-- `LocalBusiness` / `Dentist` (name, logo, sameAs, phone, geo, openingHours).
-- `Product` for each service (name, description, priceRange).
-- `FAQPage` on FAQs.
-- `Review` / `AggregateRating` where applicable.
-- JSON-LD in `<script type="application/ld+json">…</script>`.
-
-## 13) Analytics & Events
-- Add GA4 + basic event tags: `click_call`, `click_whatsapp`, `submit_booking`, `cta_hero`, `view_before_after`.
-- Cookie notice (minimal, non-intrusive).
-
-## 14) Performance & Images
-- Use next/image with responsive sizes; lazy load below the fold; prefetch hero.
-- SVG icons; compress all assets. Preconnect to fonts; system font stack preferred or 1 web font (display: swap).
-
-## 15) Security & Privacy
-- HTTPS, CSRF on forms, server-side email sending. Simple privacy policy page.
-- Consent checkbox for contacting via WhatsApp/SMS.
-
----
-
-### OUTPUT SPEC
-1. **Provide:** the complete Next.js project structure with pages (or app router routes), components, styles, and placeholder content populated with the variables above.
-2. **Include:** realistic sample copy (clinic-ready), royalty-free placeholder images (describe alt text), and example pricing ranges in INR.
-3. **Ensure:** Lighthouse passes and valid JSON-LD.
-4. **Deliver:** step-by-step run instructions (`npm install && npm run dev`) and where to edit content (`/config/clinic.json`).
-
-> Replace all `{{placeholders}}` with the provided values or sensible defaults. Prioritize conversion, trust signals, and readability over decoration.
